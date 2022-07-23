@@ -1,0 +1,23 @@
+{
+  "name": "intro-section-with-dropdown-navigation",
+  "version": "1.0.0",
+  "description": "Solution to Frontend Mentor's \"Intro section with dropdown navigation\" challenge",
+  "main": ".eleventy.js",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshjavier/intro-section-with-dropdown-navigation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshjavier/intro-section-with-dropdown-navigation/issues"
+  },
+  "homepage": "https://github.com/joshjavier/intro-section-with-dropdown-navigation#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^1.0.1"
+  }
+}
