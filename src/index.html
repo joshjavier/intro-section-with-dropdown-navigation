@@ -1,39 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frontend Mentor | Intro section with dropdown navigation</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
+  <header>
+    <img src="/images/logo.svg" alt="Snap logo" />
+    <nav aria-label="Main">
+      <ul>
+        <li class="dropdown">
+          <button
+            class="dropdown__title"
+            aria-expanded="false"
+            aria-controls="features-dropdown"
+          >
+            Features
+            <img class="dropdown__arrow" src="/images/icon-arrow-down.svg" alt="" />
+          </button>
+          <ul class="dropdown__menu" id="features-dropdown">
+            <li><a href="#">Todo List</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Reminders</a></li>
+            <li><a href="#">Planning</a></li>
+          </ul>
+        </li>
 
-  Features
-  Company
-  Careers
-  About
+        <li class="dropdown">
+          <button
+            class="dropdown__title"
+            aria-expanded="false"
+            aria-controls="company-dropdown"
+          >
+            Company
+            <img class="dropdown__arrow" src="/images/icon-arrow-down.svg" alt="" />
+          </button>
+          <ul class="dropdown__menu" id="company-dropdown">
+            <li><a href="#">History</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </li>
 
-  Login
-  Register
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
 
-  Make remote work
+    <ul class="user-actions">
+      <li><a href="#">Login</a></li>
+      <li><a href="#" class="button">Register</a></li>
+    </ul>
+  </header>
 
-  Get your team in sync, no matter your location. Streamline processes, 
-  create team rituals, and watch productivity soar.
-
-  Learn more
+  <main>
+    <h1>Make remote work</h1>
+    <p>Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
+    <button>Learn more</button>
+  </main>
   
-  <div class="attribution">
+  <!-- <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+    Coded by <a href="https://github.com/joshjavier/intro-section-with-dropdown-navigation">Josh Javier</a>.
+  </footer> -->
 </body>
 </html>
