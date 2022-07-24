@@ -22,6 +22,11 @@ ul {
     margin: 0;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
 html {
     font-family: 'Epilogue', sans-serif;
     font-weight: 500;
@@ -30,6 +35,7 @@ html {
 body {
     background-color: hsl(0, 0%, 98%);
     color: hsl(0, 0%, 8%);
+    margin: 0;
 }
 
 
@@ -65,7 +71,7 @@ header ul:not(.dropdown__menu) {
 }
 
 header {
-    padding: 1.5em 2em;
+    padding: 1.5em 4.5vmin;
     gap: 3em;
 }
 
@@ -85,6 +91,7 @@ header ul {
     /* Optically align the up/down arrow with the text */
     transform: translateY(-2px);
     margin-inline-start: 2px;
+    display: inline-block;
 }
 
 .dropdown__menu {
@@ -138,4 +145,129 @@ header ul {
 
 .user-actions {
     margin-left: auto;
+}
+
+
+/*------------------------------------*\
+  #MAIN
+\*------------------------------------*/
+
+main {
+    text-align: center;
+    display: grid;
+    grid-template-columns: max(0.8em, 4vmin) 1fr 1fr max(0.8em, 4vmin);
+    grid-template-areas:
+        "hero hero    hero    hero"
+        ".... text    text    ...."
+        ".... clients clients ....";
+}
+
+main .hero    { grid-area: hero;    }
+main .text    { grid-area: text;    }
+main .clients { grid-area: clients; }
+
+main .hero img {
+    width: 100%;
+}
+
+h1 {
+    margin-block: 0;
+    font-size: 2.2rem;
+}
+
+main p {
+    color: hsl(0, 0%, 41%);
+    line-height: 1.6;
+    margin-block: 1.2em 1.5em;
+}
+
+main .button {
+    font-weight: 700;
+    padding: 0.95em 1.45em;
+    color: hsl(0, 0%, 98%);
+    background-color: hsl(0, 0%, 8%);
+    border-color: hsl(0, 0%, 8%);
+    transition: 150ms ease-out;
+}
+
+main .button:hover,
+main .button:focus {
+    color: unset;
+    background-color: unset;
+}
+
+main .text {
+    margin-block: 3em;
+    max-width: 550px;
+    margin-inline: auto;
+}
+
+.clients__grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5em;
+    max-width: 480px;
+    margin-inline: auto;
+}
+
+body > :last-child {
+    margin-bottom: 4em;
+}
+
+@media (min-width: 800px) {
+    main {
+        margin-block: 2em;
+        text-align: unset;
+        grid-template-areas: 
+            ". text    . hero ."
+            ". clients . hero .";
+        grid-template-columns:
+            clamp(1em, 11.5vw, 10em) 3fr 0.5fr 2.5fr clamp(1em, 9vw, 10em);
+    }
+
+    main .text {
+        max-width: unset;
+        margin-inline: unset;
+        margin-block: 7vw;
+    }
+
+    main {
+        font-size: clamp(1rem, 1.27vw, 1.2rem);
+    }
+
+    h1 {
+        font-size: clamp(2.9rem, 5.5vw, 6rem);
+        max-width: 6.6em;
+    }
+
+    main p {
+        max-width: 25em;
+        margin-block: 2.5em 2.5em;
+    }
+
+    .clients__grid {
+        margin-inline: unset;
+    }
+
+    main .hero {
+        margin-block: auto;
+    }
+}
+
+
+
+
+/*------------------------------------*\
+  #UTILITY-CLASSES
+\*------------------------------------*/
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
 }
