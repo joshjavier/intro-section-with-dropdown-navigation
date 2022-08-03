@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frontend Mentor | Intro section with dropdown navigation</title>
+  <meta name="description" content="This is a solution to the &ldquo;Intro section with dropdown navigation challenge&rdquo; on Frontend Mentor">
 
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
@@ -19,49 +20,117 @@
   <header>
     <img src="/images/logo.svg" alt="Snap logo" />
     <nav aria-label="Main">
-      <ul>
-        <li class="dropdown">
-          <button
-            class="dropdown__title"
-            aria-expanded="false"
-            aria-controls="features-dropdown"
-          >
-            Features
-            <img class="dropdown__arrow" src="/images/icon-arrow-down.svg" alt="" />
-          </button>
-          <ul class="dropdown__menu" id="features-dropdown">
-            <li><a href="#">Todo List</a></li>
-            <li><a href="#">Calendar</a></li>
-            <li><a href="#">Reminders</a></li>
-            <li><a href="#">Planning</a></li>
-          </ul>
-        </li>
+      <button
+        id="openBtn"
+        class="mobile-navigation"
+        aria-expanded="false"
+        aria-controls="slideout-menu"
+      >
+        <img
+          src="/images/icon-menu.svg"
+          alt=""
+          aria-hidden="true"
+          focusable="false"
+        />
+        <span class="visually-hidden">Open menu</span>
+      </button>
 
-        <li class="dropdown">
-          <button
-            class="dropdown__title"
-            aria-expanded="false"
-            aria-controls="company-dropdown"
-          >
-            Company
-            <img class="dropdown__arrow" src="/images/icon-arrow-down.svg" alt="" />
-          </button>
-          <ul class="dropdown__menu" id="company-dropdown">
-            <li><a href="#">History</a></li>
-            <li><a href="#">Our Team</a></li>
-            <li><a href="#">Blog</a></li>
-          </ul>
-        </li>
+      <div class="nav__menu" id="slideout-menu">
+        <button id="closeBtn" class="mobile-navigation">
+          <img
+            src="/images/icon-close-menu.svg"
+            alt=""
+            aria-hidden="true"
+            focusable="false"
+          />
+          <span class="visually-hidden">Close menu</span>
+        </button>
 
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">About</a></li>
-      </ul>
+        <ul>
+          <li class="dropdown">
+            <button
+              class="dropdown__title"
+              aria-expanded="false"
+              aria-controls="features-dropdown"
+            >
+              Features
+              <img class="dropdown__arrow" src="/images/icon-arrow-down.svg" alt="" />
+            </button>
+            <ul class="dropdown__menu" id="features-dropdown">
+              <li>
+                <a href="#">
+                  <img
+                    src="/images/icon-todo.svg"
+                    alt=""
+                    aria-hidden="true"
+                    focusable="false"
+                  />
+                  <span>Todo List</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img
+                    src="/images/icon-calendar.svg"
+                    alt=""
+                    aria-hidden="true"
+                    focusable="false"
+                  />
+                  Calendar
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img
+                    src="/images/icon-reminders.svg"
+                    alt=""
+                    aria-hidden="true"
+                    focusable="false"
+                  />
+                  Reminders
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img
+                    src="/images/icon-planning.svg"
+                    alt=""
+                    aria-hidden="true"
+                    focusable="false"
+                  />
+                  Planning
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <button
+              class="dropdown__title"
+              aria-expanded="false"
+              aria-controls="company-dropdown"
+            >
+              Company
+              <img class="dropdown__arrow" src="/images/icon-arrow-down.svg" alt="" />
+            </button>
+            <ul class="dropdown__menu" id="company-dropdown">
+              <li><a href="#">History</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+
+        <ul class="user-actions">
+          <li><a href="#">Login</a></li>
+          <li><a href="#" class="button">Register</a></li>
+        </ul>
+
+      </div>
     </nav>
-
-    <ul class="user-actions">
-      <li><a href="#">Login</a></li>
-      <li><a href="#" class="button">Register</a></li>
-    </ul>
   </header>
 
   <main>
