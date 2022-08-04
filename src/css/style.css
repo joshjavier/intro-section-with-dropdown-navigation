@@ -38,6 +38,10 @@ body {
     margin: 0;
 }
 
+:focus {
+    outline: 4px solid orange;
+}
+
 
 
 /*------------------------------------*\
@@ -51,9 +55,9 @@ button {
 }
 
 a:hover,
-a:focus,
+a:active,
 button:hover,
-button:focus {
+button:active {
     color: unset;
 }
 
@@ -96,11 +100,12 @@ nav {
     padding: 0.75em 0;
 }
 
-.dropdown__title img {
+.dropdown__arrow {
     /* Optically align the up/down arrow with the text */
     transform: translateY(-2px);
     margin-inline-start: 2px;
     display: inline-block;
+    transition: 150ms all ease-out;
 }
 
 .dropdown__menu {
@@ -117,7 +122,9 @@ nav {
     ;
     position: absolute;
     width: max-content;
+}
 
+.dropdown__menu[data-visible="false"] {
     /* Initially hide the dropdown menu */
     transform: rotateX(90deg);
     transform-origin: top center;
@@ -125,23 +132,25 @@ nav {
     visibility: hidden;
 }
 
-/* Add a smooth transition and delay to prevent the dropdown animation
-   from trigerring for "drive-by" mouseovers (h/t Stephanie Eckles) */
-.dropdown__arrow,
-.dropdown__menu {
-    transition: 150ms all 120ms ease-out;
-}
+@media (min-width: 800px) {
+    /* Add a smooth transition and delay to prevent the dropdown animation
+       from trigerring for "drive-by" mouseovers (h/t Stephanie Eckles) */
+    .dropdown__arrow,
+    .dropdown__menu {
+        transition: 150ms all 120ms ease-out;
+    }
 
-.dropdown:hover .dropdown__menu,
-.dropdown:focus-within .dropdown__menu {
-    opacity: 1;
-    transform: rotateX(0);
-    visibility: visible;
-}
+    .dropdown:hover .dropdown__menu,
+    .dropdown:focus-within .dropdown__menu {
+        opacity: 1;
+        transform: rotateX(0);
+        visibility: visible;
+    }
 
-.dropdown:hover .dropdown__arrow,
-.dropdown:focus-within .dropdown__arrow {
-    transform: rotate(-180deg) translateY(2px);
+    .dropdown:hover .dropdown__arrow,
+    .dropdown:focus-within .dropdown__arrow {
+        transform: rotate(-180deg) translateY(2px);
+    }
 }
 
 .dropdown__menu > * + * {
@@ -191,7 +200,7 @@ button.mobile-navigation {
         flex-direction: column;
         justify-content: flex-start;
         gap: 2em;
-        position: absolute;
+        position: fixed;
         top: 0;
         bottom: 0;
         right: 0;
@@ -199,8 +208,13 @@ button.mobile-navigation {
         box-shadow: 0px 0px 0px 1000px rgba(0, 0, 0, 0.7);
         padding: 1.5em;
         width: 225px;
-        /*transform: rotateY(30deg);*/
+        transition: 300ms transform ease-out;
         /*transform-origin: right;*/
+    }
+
+    .nav__menu[data-visible="false"] {
+        visibility: hidden;
+        transform: translateX(225px);
     }
 
     .nav__menu ul > * + * {
@@ -211,16 +225,24 @@ button.mobile-navigation {
         padding: 0;
     }
 
+    [aria-expanded="true"] .dropdown__arrow {
+        transform: rotate(-180deg) translateY(2px);
+    }
+
     .dropdown__menu {
-        position: unset;
+        visibility: hidden;
         width: unset;
-        visibility: unset;
         transform: unset;
         opacity: unset;
         background: unset;
         box-shadow: unset;
         padding-block: 0;
         margin-top: 1.5em;
+    }
+
+    .dropdown__menu[data-visible="true"] {
+        position: unset;
+        visibility: unset;
     }
 
     .user-actions {
@@ -283,7 +305,7 @@ main .button {
 }
 
 main .button:hover,
-main .button:focus {
+main .button:active {
     color: unset;
     background-color: unset;
 }

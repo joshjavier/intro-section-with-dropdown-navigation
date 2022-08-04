@@ -14,6 +14,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap" rel="stylesheet">
+
+  <script defer src="/js/script.js"></script>
 </head>
 
 <body>
@@ -35,7 +37,11 @@
         <span class="visually-hidden">Open menu</span>
       </button>
 
-      <div class="nav__menu" id="slideout-menu">
+      <div
+        id="slideoutMenu"
+        class="nav__menu"
+        data-visible="false"
+      >
         <button id="closeBtn" class="mobile-navigation">
           <img
             src="/images/icon-close-menu.svg"
@@ -56,7 +62,11 @@
               Features
               <img class="dropdown__arrow" src="/images/icon-arrow-down.svg" alt="" />
             </button>
-            <ul class="dropdown__menu" id="features-dropdown">
+            <ul
+              id="features-dropdown"
+              class="dropdown__menu"
+              data-visible="false"
+            >
               <li>
                 <a href="#">
                   <img
@@ -113,7 +123,11 @@
               Company
               <img class="dropdown__arrow" src="/images/icon-arrow-down.svg" alt="" />
             </button>
-            <ul class="dropdown__menu" id="company-dropdown">
+            <ul
+              id="company-dropdown"
+              class="dropdown__menu"
+              data-visible="false"
+            >
               <li><a href="#">History</a></li>
               <li><a href="#">Our Team</a></li>
               <li><a href="#">Blog</a></li>
