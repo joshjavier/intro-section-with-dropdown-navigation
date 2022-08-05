@@ -10,11 +10,18 @@ const focusableInNav = document.querySelectorAll(
 const firstFocusableElem = focusableInNav[0];
 const lastFocusableElem = focusableInNav[focusableInNav.length - 1];
 
-let viewportWidth = window.innerWidth;
+let viewportWidth;
 
 
+
+function setViewportWidth() {
+    viewportWidth = window.innerWidth;
+}
 
 function expandDropdownOnMouseover(e) {
+    setViewportWidth();
+    if (viewportWidth < 800) return;  // desktop only
+
     const dropdownBtn = this.firstElementChild;
     const dropdownMenu = this.lastElementChild;
     dropdownMenu.setAttribute("data-visible", "true");
@@ -22,6 +29,9 @@ function expandDropdownOnMouseover(e) {
 }
 
 function collapseDropdownOnMouseleave(e) {
+    setViewportWidth();
+    if (viewportWidth < 800) return;  // desktop only
+
     const dropdownBtn = this.firstElementChild;
     const dropdownMenu = this.lastElementChild;
     dropdownMenu.setAttribute("data-visible", "false");
@@ -33,6 +43,9 @@ function collapseDropdownOnMouseleave(e) {
 }
 
 function toggleDropdownOnClick(e) {
+    setViewportWidth();
+    if (viewportWidth >= 800) return;  // mobile only
+
     const dropdownMenu = this.nextElementSibling;
 
     if (dropdownMenu.dataset.visible === "false") {
@@ -65,6 +78,9 @@ function toggleNav(e) {
 }
 
 function moveFocusToTop(e) {
+    setViewportWidth();
+    if (viewportWidth >= 800) return;  // mobile only
+
     if (e.key === "Tab" && !e.shiftKey) {
         e.preventDefault();
         firstFocusableElem.focus();
@@ -72,6 +88,9 @@ function moveFocusToTop(e) {
 }
 
 function moveFocusToBottom(e) {
+    setViewportWidth();
+    if (viewportWidth >= 800) return;  // mobile only
+
     if (e.key === "Tab" && e.shiftKey) {
         e.preventDefault();
         lastFocusableElem.focus();
@@ -82,20 +101,12 @@ function moveFocusToBottom(e) {
 
 /* On desktop, dropdown menus and aria attributes toggle on mouse hover. */
 dropdowns.forEach(dropdown => {
-    if (viewportWidth < 800) {
-        return;
-    }
-
     dropdown.addEventListener("mouseover", expandDropdownOnMouseover);
     dropdown.addEventListener("mouseleave", collapseDropdownOnMouseleave);
 });
 
 /* On mobile, dropdown menus toggle on click instead of on hover. */
 dropdownBtns.forEach(btn => {
-    if (viewportWidth >= 800) {
-        return;
-    }
-
     btn.addEventListener("click", toggleDropdownOnClick);
 });
 
