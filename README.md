@@ -1,93 +1,110 @@
-# Frontend Mentor - Intro section with dropdown navigation
+# Frontend Mentor - Intro section with dropdown navigation solution
 
-![Design preview for the Intro section with dropdown navigation coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [Intro section with dropdown navigation challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/intro-section-with-dropdown-navigation-ryaPetHE5). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshots](#screenshots)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
+### The challenge
 
-## The challenge
-
-Your challenge is to build out this intro section with dropdown navigation and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - View the relevant dropdown menus on desktop and mobile when interacting with the navigation links
 - View the optimal layout for the content depending on their device's screen size
 - See hover states for all interactive elements on the page
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+### Screenshots
 
-## Where to find everything
+![Screenshot of desktop design](/design/screenshot-desktop.png)
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+<img
+    src="/design/screenshot-mobile.png"
+    alt="Screenshot of mobile design"
+    width="375px"
+/>
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+### Links
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+- Solution URL: [https://www.frontendmentor.io/solutions/intro-section-with-dropdown-navigation-using-flexbox-grid-and-11ty-dDp58fK1AN](https://www.frontendmentor.io/solutions/intro-section-with-dropdown-navigation-using-flexbox-grid-and-11ty-dDp58fK1AN)
+- Live Site URL: [https://idyllic-mooncake-e899da.netlify.app/](https://idyllic-mooncake-e899da.netlify.app/)
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+## My process
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### Built with
 
-## Building your project
+- Semantic HTML5 markup
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [11ty](https://www.11ty.dev/) - static site generator
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+### What I learned
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+What really made me spend a lot of time on this was the mobile menu, specifically how to implement the different designs for mobile and desktop with the same HTML code. On top of that, I wanted to follow accessibility best practices for my solution, so I learned about common design patterns for slide-out menus and using `aria-expanded` to indicate the open state of a menu.
 
-## Deploying your project
+```html
+<nav>
+  <button
+    aria-expanded="false"
+    aria-controls="slideoutMenu"
+  >
+    <img
+      src="/images/icon-menu.svg"
+      alt=""
+      aria-hidden="true"
+      focusable="false"
+    />
+    <span class="visually-hidden">Open menu</span>
+  </button>
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+  <div id="slideoutMenu" data-visible="false">
+    ...
+  </div>
+</nav>
+```
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+It took a while to wrap my head around all these concepts, and even though it's not really included in the challenge requirements, I wanted to do it anyway to build a good habit for other coding projects I'll do in the future.
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+One thing I should really avoid is trying to learn too many things at once. I used 11ty, a static site generator, for my solution, and even though I made it work, I wasn't really able to maximize its features. It just increased my cognitive load and distracted me from learning about the accessibility aspect of the challenge.
 
-## Create a custom `README.md`
+I also think I could polish my process to make it more efficient. Break problems into smaller pieces, and work on one small piece at a time to avoid overwhelm.
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+### Continued development
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+At one point I stopped caring about making my code dry and just making it *work*, so I'm sure there's lots of opportunities to organize the code.
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+Since I also used 11ty, the challenge can also be broken down into smaller components to make it easier to maintain.
 
-## Submitting your solution
+### Useful resources
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+- [Alt-texts: The Ultimate Guide](https://axesslab.com/alt-texts/) - This guide emphasizes the importance of **context** when writing alt text, among other best practices.
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+- [Write good Alt Text to describe images](https://accessibility.huit.harvard.edu/describe-content-images) - Another good resource that contains specific examples on using alt text for various image types like graphs, diagrams, images of text, etc.
 
-## Sharing your solution
+- [Menus & Menu Buttons](https://inclusive-components.design/menus-menu-buttons/) - From Heydon Pickering's [Inclusive Components](https://inclusive-components.design/), this guide talks about accessibility considerations for faux menus and true menus, although it goes into slightly more detail on the latter. (The mobile menu for this challenge is a faux menu.)
 
-There are multiple places you can share your solution:
+- [Let’s Focus on Slide-Out Navigation](https://knowbility.org/blog/2020/accessible-slide-menus/) - This guide is the closest to what I was trying to achieve, so it heavily inspired my implementation of the mobile menu.
 
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+- [Accessible and Keyboard-Friendly Hamburger Menu + Slide Out Navigation](https://www.impressivewebs.com/accessible-keyboard-friendly-hamburger-menu-slide-out-navigation/) - Another very good example of accessible slide-out navigation.
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+- [Breakpoint conditional JavaScript in vanilla JS](https://gomakethings.com/breakpoint-conditional-javascript-in-vanilla-js/) - This helped me implement the different behavior of dropdown menus - hover on desktop and by click on mobile menu.
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+## Author
 
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- Website - [Josh Javier](https://joshjavier.com/)
+- Frontend Mentor - [@joshjavier](https://www.frontendmentor.io/profile/joshjavier)
+- Twitter - [@joshjavierr](https://twitter.com/joshjavierr)
+- Codepen - [@joshjavier](https://codepen.io/joshjavier/)
+- Codewars - [@joshjavier](https://www.codewars.com/users/joshjavier)
